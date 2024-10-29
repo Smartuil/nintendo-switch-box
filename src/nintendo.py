@@ -51,7 +51,11 @@ class NintendoClient:
         pattern = r'<script type="application/ld\+json">(.*?)<\/script>'
         match = re.search(pattern, r.text, re.DOTALL)
         if match:
-            return json.loads(match.group(1))
+            game_info = json.loads(match.group(1))
+            if '@graph' in game_info:
+                return game_info['@graph'][0]
+            else:
+                return game_info
         else:
             pattern = r'<title data-react-helmet="true">(.*?)\|'
             match = re.search(pattern, r.text, re.DOTALL)
