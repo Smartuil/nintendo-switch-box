@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Update gist
-        uses: Swilder-M/nintendo-switch-box@master
+        uses: Smartuil/nintendo-switch-box@master
         env:
           NINTENDO_SESSION_TOKEN: ${{ secrets.NINTENDO_SESSION_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
